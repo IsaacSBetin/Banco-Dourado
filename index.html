@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Bancário POO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simulador Bancário</h1>
+            <p>Gestão Financeira Profissional e Segura</p>
+        </header>
+
+        <main>
+            <!-- Seção de Criação de Conta -->
+            <section class="card">
+                <h2>Abertura de Conta</h2>
+                <div class="input-group">
+                    <input type="text" id="nomeTitular" placeholder="Nome Completo do Titular" maxlength="40">
+                    <input type="number" id="saldoInicial" placeholder="Aporte Inicial (R$)" min="0" step="0.01">
+                    <button id="btnCriarConta" class="btn-primary">Criar Conta</button>
+                </div>
+                <small class="input-hint">Limite de 40 caracteres para o nome do titular.</small>
+            </section>
+
+            <!-- Seção de Operações -->
+            <section class="card">
+                <h2>Operações Bancárias</h2>
+                <div class="input-group">
+                    <select id="selectConta">
+                        <option value="">Selecione uma conta para operar...</option>
+                    </select>
+                </div>
+                <div class="operations-grid">
+                    <div class="input-wrapper">
+                        <input type="number" id="valorOperacao" placeholder="Valor da Operação (R$)" min="0" step="0.01">
+                    </div>
+                    <button id="btnDepositar" class="btn-success">Depositar</button>
+                    <button id="btnSacar" class="btn-warning">Sacar</button>
+                    <button id="btnExtrato" class="btn-info">Extrato</button>
+                    <button id="btnEncerrar" class="btn-danger">Encerrar</button>
+                </div>
+            </section>
+
+            <!-- Seção de Listagem -->
+            <section class="card">
+                <h2>Relatório de Contas Ativas</h2>
+                <div class="table-container">
+                    <table id="tabelaContas">
+                        <thead>
+                            <tr>
+                                <th>Titular</th>
+                                <th>Status</th>
+                                <th>Saldo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- As contas serão inseridas aqui via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="divider"></div>
+                <p>Desenvolvido com excelência por</p>
+                <h3 class="author-name">Isaac Szymanski Betin</h3>
+                <p class="copyright">&copy; 2024 Banco Dourado. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+
+        <!-- Modal para Extrato -->
+        <div id="modalExtrato" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div id="extratoConteudo"></div>
+            </div>
+        </div>
+
+        <!-- Notificações -->
+        <div id="notificationContainer" class="notification-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
